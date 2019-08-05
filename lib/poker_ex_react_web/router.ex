@@ -16,7 +16,7 @@ defmodule PokerExReactWeb.Router do
   scope "/", PokerExReactWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/*path", PageController, :index
   end
 
   # Other scopes may use custom stacks.

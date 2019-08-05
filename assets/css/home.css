@@ -1,0 +1,36 @@
+.welcome-screen {
+  height: 100vh;
+  position: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loading-logo {
+  d: path('M50,75 L62.5,75 L50,50 C62.5,75,125,62.5,50,25 M50,75 L37.5,75 L50,50 C37.5,75,-25,62.5,50,25');
+  fill: none;
+  stroke-dasharray: 135%;
+  stroke-dashoffset: 0;
+  stroke-width: 1;
+  animation-name: loading-logo;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+
+@media only screen and (max-width: 600px) {
+  #loading-logo {
+    stroke-width: 2;
+  }
+}
+
+@keyframes loading-logo {
+  from {
+    stroke-dashoffset: 135%;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}

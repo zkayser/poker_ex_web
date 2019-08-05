@@ -1,3 +1,5 @@
-/* This file is for your main application css. */
+@import 'home.css';
 
-@import "./phoenix.css";
+body {
+  margin: 0;
+}
