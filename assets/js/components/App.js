@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux';
 import { Welcome } from './Welcome';
 
 class App extends React.Component {
@@ -11,4 +12,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    isAnimating: state.isAnimating
+  };
+}
+
+export default connect(mapStateToProps)(App);
