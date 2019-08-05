@@ -7,6 +7,10 @@ class App extends React.Component {
     super(props);
   }
 
+  componentDidMount(props) {
+
+  }
+
   render() {
     return <Welcome />
   }

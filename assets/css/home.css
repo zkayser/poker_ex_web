@@ -5,6 +5,17 @@
   justify-content: center;
 }
 
+.logo-loaded {
+  animation-name: shrink-logo;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
+.spade-path {
+  fill: none;
+}
+
 #loading-logo {
   d: path('M50,75 L62.5,75 L50,50 C62.5,75,125,62.5,50,25 M50,75 L37.5,75 L50,50 C37.5,75,-25,62.5,50,25');
   fill: none;
@@ -22,6 +33,28 @@
 @media only screen and (max-width: 600px) {
   #loading-logo {
     stroke-width: 2;
+  }
+}
+
+@keyframes shrink-logo {
+  25% {
+    transform: translateY(-25%);
+  }
+
+  50% {
+    transform: translateY(-50%);
+  }
+
+  60% {
+    transform: translateY(-75%)
+  }
+
+  75% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: scale(0.25) translateY(-125%);
   }
 }
 

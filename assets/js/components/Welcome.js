@@ -1,12 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setLoaded } from '../actions';
 
-export const Welcome = () => {
+const WelcomeComponent = (props) => {
+  setTimeout(() => {
+    props.setIsLoaded();
+  }, 5000);
   return (
     <div className="welcome-screen">
-        <svg width="100vw" height="100vh" viewBox="0 0 100 100">
+        <svg className={props.isAnimating ? '' : 'logo-loaded'} width="100vw" height="100vh" viewBox="0 0 100 100">
           <path stroke="#009688"
                 strokeLinecap="round"
-                id="loading-logo"
+                id={props.isAnimating ? 'loading-logo' : ''}
+                className='spade-path'
                 d="M 50 75
                   L 62.5 75
                   L 50 50
@@ -21,3 +27,12 @@ export const Welcome = () => {
       </div>
   );
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setIsLoaded: () => dispatch(setLoaded())
+    }
+  }
+
+const mapStateToProps = state => ({ isAnimating: state.isAnimating });
+export const Welcome = connect(mapStateToProps, mapDispatchToProps)(WelcomeComponent);
